@@ -33,3 +33,4 @@ $("a[data-suppression]").click(function(){
 </script>
   </body>
 </html>
+<?php ob_end_flush(); ?>

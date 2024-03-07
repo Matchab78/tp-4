@@ -83,6 +83,14 @@
           <a class="dropdown-item" href="formNationalite.php">Ajouter une nationalitée</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"> Gestion des continents</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="index.php?uc=continents&action=list">Liste des continents</a>
+          <a class="dropdown-item" href="index.php?uc=continents&action=add">Ajouter un continent</a>
+          
+        </div>
+      </li>
     </ul>
   </div>
 </nav>
