@@ -7,13 +7,13 @@
 class MonPdo
 {
 
-private static $serveur='host=btssio.dedyn.io';
-private static $bdd='CHABAUL_biblio'; 
+private static $serveur='mysql:host=btssio.dedyn.io';
+private static $bdd='dbname=CHABAUL_biblio'; 
 private static $user='CHABAUL' ; 
 private static $mdp='23032004' ;
 private static $monPdo;
 private static $unPdo = null;
-
+ 
 //	Constructeur privé, crée l'instance de PDO qui sera sollicitée
 //	pour toutes les méthodes de la classe
 private function __construct()

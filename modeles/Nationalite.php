@@ -87,7 +87,7 @@ class Nationalite {
      */
     public static function findAll() :array
     {
-        $req=MonPdo::getInstance()->prepare("select n.num as numero, n.libelle as 'libNation', c.libelle as 'libContinent' from nationalite n, continent c where n.numContinent=c.num");
+        $req=MonPdo::getInstance()->prepare("select n.num as numero, n.libelle as 'libNation', c.libelle as 'libContinent' from nationalite n left join continent c on n.numContinent=c.num");
         $req->setFetchMode(PDO::FETCH_OBJ);
         $req->execute();
         $lesResultats=$req->fetchAll();
@@ -119,8 +119,10 @@ class Nationalite {
     public static function add(Nationalite $nationalite) :int
     {
         $req=MonPdo::getInstance()->prepare("Insert into nationalite(libelle, numContinent) values(:libelle, :numContinent) ");
-        $req->bindParam(':libelle', $nationalite->getLibelle());
-        $req->bindParam(':numContinent', $nationalite->getNumContinent());
+        $libelle=$nationalite->getLibelle();
+        $req->bindParam(':libelle', $libelle);
+        $nat=null; //$nationalite->getNumContinent()
+        $req->bindParam(':numContinent', $nat);
         $nb=$req->execute();
         return $nb;
     }
