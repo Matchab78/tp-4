@@ -9,6 +9,8 @@ include "vues/messagesFlash.php";
 
 include "modeles/Nationalite.php";
 
+include "modeles/Auteur.php";
+
 
 
 
@@ -24,6 +26,10 @@ switch($uc){
     
     case 'nationalites' :
         include('controllers/nationaliteController.php');
+        break;
+    
+    case 'auteurs' :
+        include('controllers/auteurController.php');
         break;
     
 }
