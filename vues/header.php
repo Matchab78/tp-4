@@ -88,6 +88,12 @@
         <div class="dropdown-menu">
           <a class="dropdown-item" href="index.php?uc=continents&action=list">Liste des continents</a>
           <a class="dropdown-item" href="index.php?uc=continents&action=add">Ajouter un continent</a>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><i class=""></i> Gestion des Livres</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="index.php?uc=livre&action=list">Liste des livres</a>
+          <a class="dropdown-item" href="index.php?uc=livre&action=add">Ajouter un livre</a>
           
         </div>
       </li>

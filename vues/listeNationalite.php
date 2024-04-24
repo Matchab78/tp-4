@@ -1,12 +1,12 @@
 <div class="container mt-5">
 <div class="row pt-3">
     <div class="col-9"><h2>Liste des nationalités</h2></div>
-    <div class="col-3"><a href="index.php?uc=nationalites&action=add" class='btn btn-success'><i class="fa-solid fa-plus"></i>  Créer une nationalitée</a></div>
+    <div class="col-3"><a href="index.php?uc=nationalites&action=add" class='btn btn-success'><i class="fa-solid fa-plus"></i>Créer une nationalitée</a></div>
 </div>
 
-<form action="" method="get" class="border border-dark rounded p-3 mt-3 mb-3">
+<form action="" method="post" class="border border-dark rounded p-3 mt-3 mb-3">
     <div class="row">
-      <div class="col"><input type="text" class='form-control' id='libelle' placeholder='Saisir le libellé' name='libelle' value="<?php echo $libelle;?>"></div>
+      <div class="col"><input type="text" class='form-control' id='libelle' placeholder='Saisir le libellé' name='libelle' value="<?php echo $libelleSaisie;?>"></div>
       <div class="col">
       <select name="continent" class="form-control">
             <?php

@@ -6,14 +6,14 @@
 
 <form action="" method="get" class="border border-dark rounded p-3 mt-3 mb-3">
     <div class="row">
-      <div class="col"><input type="text" class='form-control' id='libelle' placeholder='Saisir le libellé' name='libelle' value="<?php echo $libelle;?>"></div>
+      <div class="col"><input type="text" class='form-control' id='libelle' placeholder='Saisir le libellé' name='libelle' value="<?php echo $libelleSaisie;?>"></div>
       <div class="col">
-      <select name="continent" class="form-control">
+      <select name="auteur" class="form-control">
             <?php
-            echo"<option value='Tous'> Tous les continents </option>";
-            foreach($lesContinents  as $continent){  
-                $selection=$continent->getNum() == $laNationalite -> numContinent ? 'selected' : '';
-                echo"<option value='".$continent->getNum()."' $selection>".$continent->getLibelle()."</option>";
+            echo"<option value='Tous'> Toutes les nationalités </option>";
+            foreach($lesAuteurs  as $auteur){  
+                $selection=$auteur->num == $auteurSel ? 'selected' : '';
+                echo"<option value='".$auteur->num."' $selection>".$auteur->libelle."</option>";
 
             }
             ?>
