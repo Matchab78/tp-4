@@ -11,6 +11,8 @@ include "modeles/Nationalite.php";
 
 include "modeles/Auteur.php";
 
+include "modeles/Genre.php";
+
 
 
 
@@ -31,6 +33,11 @@ switch($uc){
     case 'auteurs' :
         include('controllers/auteurController.php');
         break;
+
+    case 'genres' :
+        include('controllers/genreController.php');
+        break;
+        
     
 }
 

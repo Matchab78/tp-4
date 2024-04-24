@@ -2,18 +2,21 @@
 $action=$_GET['action'];
 switch($action){
     case 'list' :
+        $lesContinents=Continent::findAll();
         $lesNationalites=Nationalite::findAll();
         include('vues/listeNationalite.php');
     break;
 
     case 'add' :
         $mode="Ajouter";
+        $lesContinents=Continent::findAll();
         include('vues/formNationalite.php');
     break;
 
     case 'update' :
         $mode="Modifier";
-        $continent=Nationalite::findById($_GET['num']);
+        $nationalite=Nationalite::findById($_GET['num']);
+        $lesContinents=Continent::findAll();
         include('vues/formNationalite.php');
     break;
 
@@ -33,11 +36,15 @@ switch($action){
         $nationalite= new Nationalite();
         if(empty($_POST['num'])){ //cas création
             $nationalite->setLibelle($_POST['libelle']);
+            $cont=Continent::findById(intval($_POST['continent']));
+            $nationalite->setNumContinent($cont);
             $nb=Nationalite::add($nationalite);
             $message = "ajouté";
         }else{ //cas modif
-            $nationalite->getNum($_POST['num']);
-            $nationalite->getLibelle($_POST['libelle']);
+            $nationalite->setNum($_POST['num']);
+            $nationalite->setLibelle($_POST['libelle']);
+            $cont=Continent::findById(intval($_POST['continent']));
+            $nationalite->setNumContinent($cont);
             $nb=Nationalite::update($nationalite);
             $message = "modifié";
         }
@@ -46,6 +53,7 @@ switch($action){
         }else{
             $_SESSION['message']=['danger'=>"la nationalitée a bien été $message"];
         }
+        die;
         header('location: index.php?uc=nationalites&action=list');
         exit();
     break;

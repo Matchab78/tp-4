@@ -30,6 +30,18 @@ class Nationalite {
     }
 
 
+    /**
+     * ecrit dans le libelle
+     *
+     * @param string $libelle
+     * @return self
+     */
+    public function setNum(string $libelle) : self
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
 
 
     /**
@@ -136,9 +148,12 @@ class Nationalite {
     public static function update(Nationalite $nationalite) :int
     {
         $req=MonPdo::getInstance()->prepare("update nationalite set libelle= :libelle, numContinent= :numContinent where num= :id ");
-        $req->bindParam(':id', $nationalite->getNum());
-        $req->bindParam(':libelle', $nationalite->getLibelle());
-        $req->bindParam(':numContinent', $nationalite->getNumContinent());
+        $num = $nationalite->getNum();
+        $libelle = $nationalite->getLibelle();
+        $nat = $nationalite->getNumContinent()->getNum();
+        $req->bindParam(':id', $num);
+        $req->bindParam(':libelle', $libelle);
+        $req->bindParam(':numContinent', $nat);
         $nb=$req->execute();
         return $nb;
     }
